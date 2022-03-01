@@ -19,13 +19,13 @@ class User extends JsonResource
     {
         return [
             'id' => $this->id,
-            'profilePhoto' => $this->profile_photo,
+            'profilePicture' => $this->profile_picture,
             'phoneNumber' => $this->phone_number,
             'otp' => $this->otp,
             'fullName' => $this->full_name,
             'email' => $this->email,
-            'createdAt' => $this->created_at,
-            'updatedAt' => $this->updated_at,
+            'createdAt' => $this->created_at->toDayDateTimeString(),
+            'userAddresses' => new UserAddressCollection($this->userAddresses)
         ];
     }
 }
